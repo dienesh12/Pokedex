@@ -4,7 +4,7 @@ const colors = require(`colors`)
 const dotenv = require('dotenv').config()
 const CORS = require('cors')
 const PORT = process.env.PORT || 5000
-const connectDB = require('./config/db')
+const connectDB = require('./Config/db')
 const mongoose = require('mongoose');
 const path = require('path')
 
