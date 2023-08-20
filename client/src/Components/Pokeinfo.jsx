@@ -3,7 +3,6 @@ import axios from "axios";
 
 const Pokeinfo = ({ data }) => {
     
-    console.log(data)
 
 
     const [collName,setcollName] = useState("")
@@ -27,7 +26,6 @@ const Pokeinfo = ({ data }) => {
             }
         });
         alert(`Pokemon added to ${collName} successfully!`)
-        console.log(req);
     }
     
 

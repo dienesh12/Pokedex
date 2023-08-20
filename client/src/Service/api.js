@@ -7,7 +7,6 @@ const BACK_URL = "https://pokedex-f6t5.onrender.com"
 //REQ POST
 export const addUser = async (data) => {
     try{
-        console.log(data)
         alert("User Added Successfully")
         return await axios.post(`${BACK_URL}/api/users/register`,data)
     }catch(error){

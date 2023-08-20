@@ -23,10 +23,8 @@ function Login({history}) {
         e.preventDefault()
 
         const data = {...userInfo}
-        console.log(data);
         let response = await enterUser(data)
         let res = response.data
-        console.log(res)
         localStorage.setItem("userInfo",JSON.stringify(res))
         window.location.href = './Home'
     }

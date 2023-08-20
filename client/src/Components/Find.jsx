@@ -58,7 +58,6 @@ const Find = () => {
         }
     });
     alert(`Pokemon added to ${collName} successfully!`)
-    console.log(req);
 }
 
 
@@ -70,7 +69,6 @@ const Find = () => {
 
     const _file = files[0];
     const fileData = await readImage(_file);
-    console.log(fileData);
     setFile(fileData);
     setProcessing(true);
   }
@@ -83,18 +81,15 @@ const Find = () => {
     const predNames = [];
 
     const topkPred = [...pred].sort((a, b) => b - a).slice(0, k);
-    console.log(topkPred);
     settopK(topkPred)
     topkPred.map((i) => predIdx.push(pred.indexOf(i)));
     predIdx.map((i) => predNames.push(idx2class1[i]));
-    console.log(predNames);
     return predNames;
   };
 
   const getTopKPredPokeObj = (pred, k) => {
     const foundPokeObj = [];
     const predPokeName = getTopKPred(pred, k);
-    console.log(predPokeName);
     // predPokeName.map((name) =>
     //   foundPokeObj.push(pokeObjFromName(name, pokeObjList))
     // );
@@ -104,22 +99,16 @@ const Find = () => {
   useEffect(() => {
     async function fetchModel() {
       try {
-        console.log(MODEL_INDEXEDDB_URL);
         
         const localClassifierModel = await tf.loadLayersModel(
           MODEL_INDEXEDDB_URL
         );
 
-        console.log(localClassifierModel);
-
         setModel(localClassifierModel);
-        console.log("Model loaded from IndexedDB");
       } catch (e) {
         try {
-          console.log(MODEL_HTTP_URL);
           const classifierModel = await tf.loadLayersModel(MODEL_HTTP_URL);
 
-          console.log(classifierModel);
           setModel(classifierModel);
           console.log("Model Loaded");
           await classifierModel.save(MODEL_INDEXEDDB_URL);
@@ -138,8 +127,6 @@ const Find = () => {
         //console.log(imageElement);
         imageElement.src = file;
 
-        console.log(imageElement);
-
         imageElement.onload = async () => {
           const tensor = tf.browser
             .fromPixels(imageElement)
@@ -148,8 +135,6 @@ const Find = () => {
             .sub(127)
             .div(127)
             .expandDims();
-
-          console.log("fuck");
           const y_pred = await model.predict(tensor).data();
           //   console.log(y_pred);
           // console.log(pokemonState);
@@ -162,7 +147,6 @@ const Find = () => {
           const req1 = await axios.get(`https://pokeapi.co/api/v2/pokemon/${topkPredNames[0]}`)
           const req2 = await axios.get(`https://pokeapi.co/api/v2/pokemon/${topkPredNames[1]}`)
           const req3 = await axios.get(`https://pokeapi.co/api/v2/pokemon/${topkPredNames[2]}`)
-          console.log(req1);
           setpokeDex1(req1.data)
           setpokeDex2(req2.data)
           setpokeDex3(req3.data)

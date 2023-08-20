@@ -3,9 +3,6 @@ import axios from 'axios';
 
 const Create = ({arr}) => {
 
-  console.log(arr);
-
-
   return(
     <div className='grid-container-element'>
 

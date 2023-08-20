@@ -29,17 +29,15 @@ const Home = () => {
     }
     const userData =  (JSON.parse(window.localStorage.getItem("userInfo")))
     const token = userData.token
-    console.log(data);
-    console.log(token);
+
     const req = await axios.post(`https://pokedex-f6t5.onrender.com/api/collections/createCollection`,data,{ 
       headers: {
           Authorization: 'Bearer ' + token
       }
     });
 
-    console.log(req);
     ///populateCollections()
-    //alert('Collection created, Please Refresh')
+    alert('Collection created, Please Refresh')
   }
 
   async function populateCollections () {
@@ -47,8 +45,6 @@ const Home = () => {
     const username = userData.username
     const token = userData.token
     setUserName(username)
-    console.log(username);
-    console.log(token);
     const req = await axios.get(`https://pokedex-f6t5.onrender.com/api/collections/getCollections/${username}`,{ 
       headers: {
           Authorization: 'Bearer ' + token
@@ -56,7 +52,7 @@ const Home = () => {
     });
 
     setCollections(req.data)
-    console.log(collections);
+
   }
 
 
@@ -120,7 +116,7 @@ const Home = () => {
                   });
 
                   
-                  //alert(`Collection ${req.collectionName} has been deleted, Please refresh!`)
+                  alert(`Collection ${req.collectionName} has been deleted, Please refresh!`)
             }}>delete</button>
             </div>
             <Create arr={item.pokemons} />

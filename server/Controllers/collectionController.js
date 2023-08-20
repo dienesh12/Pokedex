@@ -2,7 +2,7 @@ const User = require('../Models/userModel')
 
 const createCollection = async (req,res) => {
     const body = req.body
-    console.log(body)
+    //console.log(body)
 
     if (body.collectionName === "")
       return res.status(400).json({
@@ -32,7 +32,7 @@ const createCollection = async (req,res) => {
       pokemons: body.pokemons,
     }
   
-    console.log(newCollection);
+    //console.log(newCollection);
     user.pokeCollection.push(newCollection)
   
     
@@ -55,7 +55,7 @@ const getCollections = async (req,res) => {
     }
   
     const collection = user.pokeCollection
-    console.log(collection);
+    //console.log(collection);
     try {
       res.status(200).json(collection)
     } catch (e) {
@@ -65,7 +65,7 @@ const getCollections = async (req,res) => {
 
 const addPokemon = async (req,res) => {
     const body = req.body
-    console.log(body);
+    //console.log(body);
     
     const user = await User.findOne({ username: body.username })
   
@@ -79,7 +79,7 @@ const addPokemon = async (req,res) => {
       col => col.collectionName == body.collectionName
     )
   
-    console.log(collection);
+    //console.log(collection);
 
     if (collection.pokemons.length !== 0) {
       
@@ -97,7 +97,7 @@ const addPokemon = async (req,res) => {
     const data = {pokeName: body.pokeName, pokeURL: body.pokeURL}
     
     collection.pokemons.push(data)
-    console.log(collection);
+    //console.log(collection);
     
       
       try {

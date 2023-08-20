@@ -20,9 +20,7 @@ function Register() {
         e.preventDefault()
 
         const data = {...userInfo}
-        console.log(data);
         const res = await addUser(data)
-        console.log(res);
     }
 
     return (

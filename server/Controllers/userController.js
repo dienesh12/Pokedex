@@ -32,7 +32,7 @@ const registerUser = async (req,res) => {
         newCollection
     })
 
-    console.log(user)
+    //console.log(user)
 
     //Sending back user data for JSW authentication
     if(user){
