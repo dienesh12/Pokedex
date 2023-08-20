@@ -31,7 +31,7 @@ const Home = () => {
     const token = userData.token
     console.log(data);
     console.log(token);
-    const req = await axios.post(`http://localhost:5000/api/collections/createCollection`,data,{ 
+    const req = await axios.post(`https://pokedex-f6t5.onrender.com/api/collections/createCollection`,data,{ 
       headers: {
           Authorization: 'Bearer ' + token
       }
@@ -49,7 +49,7 @@ const Home = () => {
     setUserName(username)
     console.log(username);
     console.log(token);
-    const req = await axios.get(`http://localhost:5000/api/collections/getCollections/${username}`,{ 
+    const req = await axios.get(`https://pokedex-f6t5.onrender.com/api/collections/getCollections/${username}`,{ 
       headers: {
           Authorization: 'Bearer ' + token
       }
@@ -113,7 +113,7 @@ const Home = () => {
                   }
                   const userData =  (JSON.parse(window.localStorage.getItem("userInfo")))
                   const token = userData.token
-                  const req = await axios.post(`http://localhost:5000/api/collections/deleteCollection`,data,{ 
+                  const req = await axios.post(`https://pokedex-f6t5.onrender.com/api/collections/deleteCollection`,data,{ 
                     headers: {
                         Authorization: 'Bearer ' + token
                     }

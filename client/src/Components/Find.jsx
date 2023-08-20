@@ -52,7 +52,7 @@ const Find = () => {
         'pokeName':name
     }
 
-    const req = await axios.post(`http://localhost:5000/api/collections/addPokemon`,data1,{ 
+    const req = await axios.post(`https://pokedex-f6t5.onrender.com/api/collections/addPokemon`,data1,{ 
         headers: {
             Authorization: 'Bearer ' + token
         }
@@ -75,7 +75,7 @@ const Find = () => {
     setProcessing(true);
   }
 
-  const MODEL_HTTP_URL = "http://localhost:5000/api/pokeml/classify";
+  const MODEL_HTTP_URL = "https://pokedex-f6t5.onrender.com/api/pokeml/classify";
   const MODEL_INDEXEDDB_URL = "indexeddb://poke-model";
 
   const getTopKPred = (pred, k) => {

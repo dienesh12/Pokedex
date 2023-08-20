@@ -21,7 +21,7 @@ const Pokeinfo = ({ data }) => {
             'pokeURL': `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${data.id}.svg`
         }
 
-        const req = await axios.post(`http://localhost:5000/api/collections/addPokemon`,data1,{ 
+        const req = await axios.post(`https://pokedex-f6t5.onrender.com/api/collections/addPokemon`,data1,{ 
             headers: {
                 Authorization: 'Bearer ' + token
             }

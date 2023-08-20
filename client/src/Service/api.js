@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const BACK_URL = "http://localhost:5000"
+const BACK_URL = "https://pokedex-f6t5.onrender.com"
 
 //calling api for creating new user
 //PATH URL/add
