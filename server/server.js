@@ -31,7 +31,7 @@ app.use('/api/collections', require('./Routes/collectionRoute'))
 
 // ---------------------- Deployment ----------------------
 
-var __dirname2 = path.resolve().split("\\")
+var __dirname2 = path.resolve().split("/")
 __dirname2.pop()
 const __dirname1 = __dirname2.join("/")
 console.log(__dirname1);
